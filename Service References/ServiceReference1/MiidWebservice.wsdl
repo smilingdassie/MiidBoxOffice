@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LoginEventOrganiserBoxOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEventOrganiserBoxOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginEventOrganiserBoxOfficeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseBoxOfficeTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TicketClassList" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BoxOfficeUserID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PosID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseBoxOfficeTicketsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PurchaseBoxOfficeTicketsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketClassesForEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EventCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBoxOffice" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketClassesForEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketClassesForEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserForTag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserForTagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserForTagResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEventOrganiser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEventOrganiserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginEventOrganiserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentEventsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketValidForEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketValidForEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TicketValidForEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllowDenyAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReasonForBlocking" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Block" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllowDenyAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllowDenyAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketHoldersForEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketHoldersForEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketHoldersForEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDevice0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDevice0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterDevice0Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VendorLoginGetEvents1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VendorPin" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VendorCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VendorLoginGetEvents1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VendorLoginGetEvents1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEvent2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEvent2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetEvent2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddStaff3a">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StaffCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StaffPin" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OverwritePin" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddStaff3aResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddStaff3aResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStaff3c">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStaff3cResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStaff3cResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartShift3b">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentVendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentDevicePin" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentStaffCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartShift3bResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartShift3bResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffLogin4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StaffCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StaffPin" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShiftNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StaffLogin4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StaffLogin4Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScanTagForPayment6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScanTagForPayment6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScanTagForPayment6Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResult7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PIN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StaffID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShiftNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResult7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentResult7Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResult7NoPin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PIN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StaffID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShiftNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResult7NoPinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentResult7NoPinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScanTagForPaymentRefund6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScanTagForPaymentRefund6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScanTagForPaymentRefund6Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResultRefund7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PIN" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StaffID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShiftNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResultRefund7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentResultRefund7Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseShift9">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VendorPin" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VendorCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShiftNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StaffID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseShift9Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloseShift9Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginEventOrganiserBoxOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginEventOrganiserBoxOffice" />
+  </wsdl:message>
+  <wsdl:message name="LoginEventOrganiserBoxOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginEventOrganiserBoxOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseBoxOfficeTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:PurchaseBoxOfficeTickets" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseBoxOfficeTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseBoxOfficeTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketClassesForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTicketClassesForEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketClassesForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketClassesForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserForTagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserForTag" />
+  </wsdl:message>
+  <wsdl:message name="GetUserForTagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserForTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginEventOrganiserSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginEventOrganiser" />
+  </wsdl:message>
+  <wsdl:message name="LoginEventOrganiserSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginEventOrganiserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketValidForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:TicketValidForEvent" />
+  </wsdl:message>
+  <wsdl:message name="TicketValidForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:TicketValidForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllowDenyAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:AllowDenyAccess" />
+  </wsdl:message>
+  <wsdl:message name="AllowDenyAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:AllowDenyAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEventImage" />
+  </wsdl:message>
+  <wsdl:message name="GetEventImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketHoldersForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTicketHoldersForEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketHoldersForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketHoldersForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDevice0SoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterDevice0" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDevice0SoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterDevice0Response" />
+  </wsdl:message>
+  <wsdl:message name="VendorLoginGetEvents1SoapIn">
+    <wsdl:part name="parameters" element="tns:VendorLoginGetEvents1" />
+  </wsdl:message>
+  <wsdl:message name="VendorLoginGetEvents1SoapOut">
+    <wsdl:part name="parameters" element="tns:VendorLoginGetEvents1Response" />
+  </wsdl:message>
+  <wsdl:message name="SetEvent2SoapIn">
+    <wsdl:part name="parameters" element="tns:SetEvent2" />
+  </wsdl:message>
+  <wsdl:message name="SetEvent2SoapOut">
+    <wsdl:part name="parameters" element="tns:SetEvent2Response" />
+  </wsdl:message>
+  <wsdl:message name="AddStaff3aSoapIn">
+    <wsdl:part name="parameters" element="tns:AddStaff3a" />
+  </wsdl:message>
+  <wsdl:message name="AddStaff3aSoapOut">
+    <wsdl:part name="parameters" element="tns:AddStaff3aResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStaff3cSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStaff3c" />
+  </wsdl:message>
+  <wsdl:message name="GetStaff3cSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStaff3cResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartShift3bSoapIn">
+    <wsdl:part name="parameters" element="tns:StartShift3b" />
+  </wsdl:message>
+  <wsdl:message name="StartShift3bSoapOut">
+    <wsdl:part name="parameters" element="tns:StartShift3bResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffLogin4SoapIn">
+    <wsdl:part name="parameters" element="tns:StaffLogin4" />
+  </wsdl:message>
+  <wsdl:message name="StaffLogin4SoapOut">
+    <wsdl:part name="parameters" element="tns:StaffLogin4Response" />
+  </wsdl:message>
+  <wsdl:message name="ScanTagForPayment6SoapIn">
+    <wsdl:part name="parameters" element="tns:ScanTagForPayment6" />
+  </wsdl:message>
+  <wsdl:message name="ScanTagForPayment6SoapOut">
+    <wsdl:part name="parameters" element="tns:ScanTagForPayment6Response" />
+  </wsdl:message>
+  <wsdl:message name="PaymentResult7SoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentResult7" />
+  </wsdl:message>
+  <wsdl:message name="PaymentResult7SoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentResult7Response" />
+  </wsdl:message>
+  <wsdl:message name="PaymentResult7NoPinSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentResult7NoPin" />
+  </wsdl:message>
+  <wsdl:message name="PaymentResult7NoPinSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentResult7NoPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="ScanTagForPaymentRefund6SoapIn">
+    <wsdl:part name="parameters" element="tns:ScanTagForPaymentRefund6" />
+  </wsdl:message>
+  <wsdl:message name="ScanTagForPaymentRefund6SoapOut">
+    <wsdl:part name="parameters" element="tns:ScanTagForPaymentRefund6Response" />
+  </wsdl:message>
+  <wsdl:message name="PaymentResultRefund7SoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentResultRefund7" />
+  </wsdl:message>
+  <wsdl:message name="PaymentResultRefund7SoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentResultRefund7Response" />
+  </wsdl:message>
+  <wsdl:message name="CloseShift9SoapIn">
+    <wsdl:part name="parameters" element="tns:CloseShift9" />
+  </wsdl:message>
+  <wsdl:message name="CloseShift9SoapOut">
+    <wsdl:part name="parameters" element="tns:CloseShift9Response" />
+  </wsdl:message>
+  <wsdl:portType name="MiidWebServiceSoap">
+    <wsdl:operation name="LoginEventOrganiserBoxOffice">
+      <wsdl:input message="tns:LoginEventOrganiserBoxOfficeSoapIn" />
+      <wsdl:output message="tns:LoginEventOrganiserBoxOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseBoxOfficeTickets">
+      <wsdl:input message="tns:PurchaseBoxOfficeTicketsSoapIn" />
+      <wsdl:output message="tns:PurchaseBoxOfficeTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketClassesForEvent">
+      <wsdl:input message="tns:GetTicketClassesForEventSoapIn" />
+      <wsdl:output message="tns:GetTicketClassesForEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForTag">
+      <wsdl:input message="tns:GetUserForTagSoapIn" />
+      <wsdl:output message="tns:GetUserForTagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginEventOrganiser">
+      <wsdl:input message="tns:LoginEventOrganiserSoapIn" />
+      <wsdl:output message="tns:LoginEventOrganiserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentEvents">
+      <wsdl:input message="tns:GetCurrentEventsSoapIn" />
+      <wsdl:output message="tns:GetCurrentEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketValidForEvent">
+      <wsdl:input message="tns:TicketValidForEventSoapIn" />
+      <wsdl:output message="tns:TicketValidForEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllowDenyAccess">
+      <wsdl:input message="tns:AllowDenyAccessSoapIn" />
+      <wsdl:output message="tns:AllowDenyAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventImage">
+      <wsdl:input message="tns:GetEventImageSoapIn" />
+      <wsdl:output message="tns:GetEventImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketHoldersForEvent">
+      <wsdl:input message="tns:GetTicketHoldersForEventSoapIn" />
+      <wsdl:output message="tns:GetTicketHoldersForEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice0">
+      <wsdl:input message="tns:RegisterDevice0SoapIn" />
+      <wsdl:output message="tns:RegisterDevice0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VendorLoginGetEvents1">
+      <wsdl:input message="tns:VendorLoginGetEvents1SoapIn" />
+      <wsdl:output message="tns:VendorLoginGetEvents1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEvent2">
+      <wsdl:input message="tns:SetEvent2SoapIn" />
+      <wsdl:output message="tns:SetEvent2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff3a">
+      <wsdl:input message="tns:AddStaff3aSoapIn" />
+      <wsdl:output message="tns:AddStaff3aSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaff3c">
+      <wsdl:input message="tns:GetStaff3cSoapIn" />
+      <wsdl:output message="tns:GetStaff3cSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartShift3b">
+      <wsdl:input message="tns:StartShift3bSoapIn" />
+      <wsdl:output message="tns:StartShift3bSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffLogin4">
+      <wsdl:input message="tns:StaffLogin4SoapIn" />
+      <wsdl:output message="tns:StaffLogin4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScanTagForPayment6">
+      <wsdl:input message="tns:ScanTagForPayment6SoapIn" />
+      <wsdl:output message="tns:ScanTagForPayment6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResult7">
+      <wsdl:input message="tns:PaymentResult7SoapIn" />
+      <wsdl:output message="tns:PaymentResult7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResult7NoPin">
+      <wsdl:input message="tns:PaymentResult7NoPinSoapIn" />
+      <wsdl:output message="tns:PaymentResult7NoPinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScanTagForPaymentRefund6">
+      <wsdl:input message="tns:ScanTagForPaymentRefund6SoapIn" />
+      <wsdl:output message="tns:ScanTagForPaymentRefund6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResultRefund7">
+      <wsdl:input message="tns:PaymentResultRefund7SoapIn" />
+      <wsdl:output message="tns:PaymentResultRefund7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseShift9">
+      <wsdl:input message="tns:CloseShift9SoapIn" />
+      <wsdl:output message="tns:CloseShift9SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MiidWebServiceSoap" type="tns:MiidWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginEventOrganiserBoxOffice">
+      <soap:operation soapAction="http://tempuri.org/LoginEventOrganiserBoxOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseBoxOfficeTickets">
+      <soap:operation soapAction="http://tempuri.org/PurchaseBoxOfficeTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketClassesForEvent">
+      <soap:operation soapAction="http://tempuri.org/GetTicketClassesForEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForTag">
+      <soap:operation soapAction="http://tempuri.org/GetUserForTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEventOrganiser">
+      <soap:operation soapAction="http://tempuri.org/LoginEventOrganiser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentEvents">
+      <soap:operation soapAction="http://tempuri.org/GetCurrentEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketValidForEvent">
+      <soap:operation soapAction="http://tempuri.org/TicketValidForEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllowDenyAccess">
+      <soap:operation soapAction="http://tempuri.org/AllowDenyAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventImage">
+      <soap:operation soapAction="http://tempuri.org/GetEventImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketHoldersForEvent">
+      <soap:operation soapAction="http://tempuri.org/GetTicketHoldersForEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice0">
+      <soap:operation soapAction="http://tempuri.org/RegisterDevice0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VendorLoginGetEvents1">
+      <soap:operation soapAction="http://tempuri.org/VendorLoginGetEvents1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEvent2">
+      <soap:operation soapAction="http://tempuri.org/SetEvent2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff3a">
+      <soap:operation soapAction="http://tempuri.org/AddStaff3a" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaff3c">
+      <soap:operation soapAction="http://tempuri.org/GetStaff3c" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartShift3b">
+      <soap:operation soapAction="http://tempuri.org/StartShift3b" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffLogin4">
+      <soap:operation soapAction="http://tempuri.org/StaffLogin4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScanTagForPayment6">
+      <soap:operation soapAction="http://tempuri.org/ScanTagForPayment6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResult7">
+      <soap:operation soapAction="http://tempuri.org/PaymentResult7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResult7NoPin">
+      <soap:operation soapAction="http://tempuri.org/PaymentResult7NoPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScanTagForPaymentRefund6">
+      <soap:operation soapAction="http://tempuri.org/ScanTagForPaymentRefund6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResultRefund7">
+      <soap:operation soapAction="http://tempuri.org/PaymentResultRefund7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseShift9">
+      <soap:operation soapAction="http://tempuri.org/CloseShift9" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MiidWebServiceSoap12" type="tns:MiidWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginEventOrganiserBoxOffice">
+      <soap12:operation soapAction="http://tempuri.org/LoginEventOrganiserBoxOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseBoxOfficeTickets">
+      <soap12:operation soapAction="http://tempuri.org/PurchaseBoxOfficeTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketClassesForEvent">
+      <soap12:operation soapAction="http://tempuri.org/GetTicketClassesForEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForTag">
+      <soap12:operation soapAction="http://tempuri.org/GetUserForTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEventOrganiser">
+      <soap12:operation soapAction="http://tempuri.org/LoginEventOrganiser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetCurrentEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketValidForEvent">
+      <soap12:operation soapAction="http://tempuri.org/TicketValidForEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllowDenyAccess">
+      <soap12:operation soapAction="http://tempuri.org/AllowDenyAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventImage">
+      <soap12:operation soapAction="http://tempuri.org/GetEventImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketHoldersForEvent">
+      <soap12:operation soapAction="http://tempuri.org/GetTicketHoldersForEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice0">
+      <soap12:operation soapAction="http://tempuri.org/RegisterDevice0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VendorLoginGetEvents1">
+      <soap12:operation soapAction="http://tempuri.org/VendorLoginGetEvents1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEvent2">
+      <soap12:operation soapAction="http://tempuri.org/SetEvent2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff3a">
+      <soap12:operation soapAction="http://tempuri.org/AddStaff3a" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaff3c">
+      <soap12:operation soapAction="http://tempuri.org/GetStaff3c" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartShift3b">
+      <soap12:operation soapAction="http://tempuri.org/StartShift3b" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffLogin4">
+      <soap12:operation soapAction="http://tempuri.org/StaffLogin4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScanTagForPayment6">
+      <soap12:operation soapAction="http://tempuri.org/ScanTagForPayment6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResult7">
+      <soap12:operation soapAction="http://tempuri.org/PaymentResult7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResult7NoPin">
+      <soap12:operation soapAction="http://tempuri.org/PaymentResult7NoPin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScanTagForPaymentRefund6">
+      <soap12:operation soapAction="http://tempuri.org/ScanTagForPaymentRefund6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentResultRefund7">
+      <soap12:operation soapAction="http://tempuri.org/PaymentResultRefund7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseShift9">
+      <soap12:operation soapAction="http://tempuri.org/CloseShift9" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MiidWebService">
+    <wsdl:port name="MiidWebServiceSoap" binding="tns:MiidWebServiceSoap">
+      <soap:address location="https://miid.co.za/MiidWebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MiidWebServiceSoap12" binding="tns:MiidWebServiceSoap12">
+      <soap12:address location="https://miid.co.za/MiidWebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MiidBoxOffice.exe" version="1.0.0.3" publicKeyToken="7a158d7649339f01" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MiidBoxOffice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MiidBoxOffice.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.bpac.dll" size="36864">
+      <assemblyIdentity name="Interop.bpac" version="1.3.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Uxy4rLml1JiTOTVqX1+FgEwqdW5WpecXwfdqF17ITYY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MiidBoxOffice.exe" size="71656">
+      <assemblyIdentity name="MiidBoxOffice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>8YWghsjSEfU8mmAgDQve/ablq+89Snga4uthke5jctA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="662528">
+      <assemblyIdentity name="Newtonsoft.Json" version="11.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9Yw3T/yq5ONtdA2Q+/f+cNCrtzKM2a86CntwgD6ZS6Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MiidBoxOffice.exe.config" size="1021">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qni8j1HEOHt7dsnGwr7Qo0In7eLzAjAHxmJMqgtDr9c=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DANIEL-INSPIRON\Daniel" issuerKeyHash="29ef3dfa474c503b96389905f6d899b7a0dc5352" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>5tyNh3gditBNSizLfBYiqf4w7T5NaqFDctI3FJXj6DQ=</DigestValue></Reference></SignedInfo><SignatureValue>CVrVbtpVeJxmTgmIMLOB0ANzIEF10M/nXrI14DFGms0tus3kEGLjIs6ZwW2vYdeaxP0f/YcKpfGawaDbXsVF+rRmfiQ/NEcog+msEYr3qG7VHHDh4Ic2fmmBg69D0k5SUrlgDXXOGiTkZqoxlMKF5I9oOFaHpiqAXGec9r7LPCU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>2NDY1dxR46kA60Tq4GZG1Rag0lCxjSjBnPIxHirNh7VX4lvmhrNfSPWOUEYEK5jpwtM+QXSgJEyvKB62CNjYuELN6EjJ/08FFSGyM1c28F54laWtcqcpvTjNnnnU0Rvm5f7KxXvHvkS5k0mByeTNskPyWXik+xK9VFaYLwbF/mE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="34e8e3951437d27243a16a4d3eed30fea922167ccb2c4a4dd08a1d78878ddce6" Description="" Url=""><as:assemblyIdentity name="MiidBoxOffice.exe" version="1.0.0.3" publicKeyToken="7a158d7649339f01" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DANIEL-INSPIRON\Daniel</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>agFfQLTDzM/Rwp+r7wr/s1vuXFFLkTQda1wo6JtSXtY=</DigestValue></Reference></SignedInfo><SignatureValue>AP0K+z11lLrGNsJsGH4/4UAw1/VsT9+jvKmf2yPc1jYpagUuLwvzlP65vZ+YY8sdO5v6CUeVQXbu0eVvttktM0RpgViL/Pyq4qDlKS/26dGGVwB+SLsveWkWiJhySqmTvwjYX4Mtd8zYRkxbMnROocxPKhwfSp9B0GTOWUHE2Gw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2NDY1dxR46kA60Tq4GZG1Rag0lCxjSjBnPIxHirNh7VX4lvmhrNfSPWOUEYEK5jpwtM+QXSgJEyvKB62CNjYuELN6EjJ/08FFSGyM1c28F54laWtcqcpvTjNnnnU0Rvm5f7KxXvHvkS5k0mByeTNskPyWXik+xK9VFaYLwbF/mE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQYD2EFR/V3rZFIC5EJcptnjANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwARABBAE4ASQBFAEwALQBJAE4AUwBQAEkAUgBPAE4AXABEAGEAbgBpAGUAbDAeFw0xODA0MDkwNzA2MTZaFw0xOTA0MDkxMzA2MTZaMDcxNTAzBgNVBAMeLABEAEEATgBJAEUATAAtAEkATgBTAFAASQBSAE8ATgBcAEQAYQBuAGkAZQBsMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDY0NjV3FHjqQDrROrgZkbVFqDSULGNKMGc8jEeKs2HtVfiW+aGs19I9Y5QRgQrmOnC0z5BdKAkTK8oHrYI2Ni4Qs3oSMn/TwUVIbIzVzbwXniVpa1ypym9OM2eedTRG+bl/srFe8e+RLmTSYHJ5M2yQ/JZeKT7Er1UVpgvBsX+YQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBACywfno83E8HrYO18Y2yEuCPgiSkIz14VhUdz9vxEzRDkwe77DrVlBjnXBykeABsns5xhfsJJyTdtr1CFOofKVT6Jltl0ac1q38us14Sleb+VbiNcWueMMAV77TUvO/AUwWQIc/L68FKCxfIIUyL47FfEBcgcOvP0nUtu6EgKCL3</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
