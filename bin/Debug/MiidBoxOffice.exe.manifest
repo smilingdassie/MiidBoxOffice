@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8YWghsjSEfU8mmAgDQve/ablq+89Snga4uthke5jctA=</dsig:DigestValue>
+        <dsig:DigestValue>A2OSVFY5G+sqj4Kj76wA/gqqXwBAt5COfusYCbxnD/U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -77,13 +77,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="MiidBoxOffice.exe.config" size="1021">
+  <file name="MiidBoxOffice.exe.config" size="988">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>qni8j1HEOHt7dsnGwr7Qo0In7eLzAjAHxmJMqgtDr9c=</dsig:DigestValue>
+      <dsig:DigestValue>RJ8Lue0uGR3PVRG9ikRrjHb5OOCJuh9oTkpN1S28RVc=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

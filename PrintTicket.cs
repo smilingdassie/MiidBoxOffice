@@ -70,8 +70,7 @@ namespace MiidBoxOffice
                     foreach (Ticket s1 in myTicketsSb)
                     {
                         TicketPrintViewModel s = new TicketPrintViewModel(s1, Global.TicketClasses);
-                        richTextBox1.AppendText("TIC" + s.TicketNumber);
-                        richTextBox1.AppendText("\n");
+                      
                         doc.GetObject("objBarCode").Text = "TIC" + s.TicketNumber;
                         doc.GetObject("objEventName").Text = s.EventName;
                         doc.GetObject("objTicketClass").Text = s.Description;
@@ -80,9 +79,10 @@ namespace MiidBoxOffice
                         doc.StartPrint("", bpac.PrintOptionConstants.bpoDefault);
                         doc.PrintOut(1, bpac.PrintOptionConstants.bpoDefault);
                         doc.EndPrint();
-                        doc.Close();
-
+                     
                     }
+                    doc.Close();
+
                 }
                 else
                 {
