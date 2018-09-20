@@ -19,25 +19,44 @@ namespace MiidBoxOffice
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-
-            ServiceReference1.MiidWebServiceSoapClient client = new ServiceReference1.MiidWebServiceSoapClient();
-            Global.UserID = client.LoginEventOrganiserBoxOffice(txtUserName.Text, txtPassword.Text, int.Parse(txtEventID.Text));
-
-
-            if (Global.UserID > 0)
+            try
             {
-                Global.EventID = int.Parse(txtEventID.Text);
-                EventSetup form = new EventSetup();
-                form.Show();
-               
+                ServiceReference1.MiidWebServiceSoapClient client = new ServiceReference1.MiidWebServiceSoapClient();
+                Global.UserID = client.LoginEventOrganiserBoxOffice(txtUserName.Text, txtPassword.Text, int.Parse(txtEventID.Text));
 
+
+                if (Global.UserID > 0)
+                {
+                    Global.EventID = int.Parse(txtEventID.Text);
+                    EventSetup form = new EventSetup();
+                    form.Show();
+
+
+                }
+                else
+                {
+                    lblError.Visible = true;
+                    lblError.Text = "Invalid Credentials. Please check and try again.";
+
+                }
             }
-            else
+            catch (Exception ex)
             {
                 lblError.Visible = true;
-                lblError.Text = "Invalid Credentials. Please check and try again.";
+                lblError.Text = "Web service offline: " + ex.Message;
 
             }
+
         }
-    }
+
+		private void ButtonExit_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void SignIn_Enter(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

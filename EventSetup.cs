@@ -24,15 +24,22 @@ namespace MiidBoxOffice
 
         private void btnGetTicketClassesForEvent_Click(object sender, EventArgs e)
         {
-            //Get ticket classes from Webservice
-            ServiceReference1.MiidWebServiceSoapClient client = new ServiceReference1.MiidWebServiceSoapClient();
-            bool IsBoxOffice = true;
-            Global.TicketClasses = TicketClassRepository.DeserialiseString(client.GetTicketClassesForEvent(txtEventCode.Text, IsBoxOffice));
-            
-            dataGridView1.DataSource = Global.TicketClasses;
+            try
+            {
+                //Get ticket classes from Webservice
+                ServiceReference1.MiidWebServiceSoapClient client = new ServiceReference1.MiidWebServiceSoapClient();
+                bool IsBoxOffice = true;
+                Global.TicketClasses = TicketClassRepository.DeserialiseString(client.GetTicketClassesForEvent(txtEventCode.Text, IsBoxOffice));
 
+                dataGridView1.DataSource = Global.TicketClasses;
+            }
+            catch (Exception ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = "Web service offline: " + ex.Message;
 
-          
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,5 +63,30 @@ namespace MiidBoxOffice
 
             }
         }
-    }
+
+		private void lblError_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void txtPOSID_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void txtUserID_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

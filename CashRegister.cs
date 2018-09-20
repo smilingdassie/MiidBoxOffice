@@ -1,4 +1,5 @@
 ﻿using MiidBoxOffice.Models;
+using MiidBoxOffice.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,22 @@ namespace MiidBoxOffice
 
             public int Subtotal { get; set; }
 
+         
+
         }
+
+      
 
         public List<TicketClassLiteViewModel> TicketClasses { get; set; }
         public CashRegister(List<TicketClassLiteViewModel> TicketClasses, int UserID)
         {
             InitializeComponent();
+            NewMethod(TicketClasses, UserID);
+        }
+
+        private void NewMethod(List<TicketClassLiteViewModel> TicketClasses, int UserID)
+        {
+           
             _UserID = UserID;
             this.TicketClasses = TicketClasses;
             this.lblEventName.Text = TicketClasses.First().EventName;
@@ -35,9 +46,10 @@ namespace MiidBoxOffice
             foreach (var t in TicketClasses)
             {
                 AddDescriptionLabel(t.Description);
-                AddDateLabel(t.StartDate, t.EndDate);
-                AddPriceLabel(t.ID,t.Price);
-                AddQtyTextBox(t.ID);
+                AddDateLabel(t.Description, t.StartDate, t.EndDate);
+                AddPriceLabel(t.ID, t.Price);
+                AddQtyTextBox(t.ID, t.RunningQuantity > 0, t.RunningQuantity);
+                AddRunningQtyLabel(t.ID, t.RunningQuantity);
             }
         }
 
@@ -63,9 +75,9 @@ namespace MiidBoxOffice
             
             foreach (Control c in this.Controls)
             {
-                if (c is TextBox)
+                if (c is NumericUpDown)
                 {
-                    TextBox TextBoxControl = (TextBox)c;
+                    NumericUpDown TextBoxControl = (NumericUpDown)c;
 
                     if (!String.IsNullOrEmpty(c.Text))
                     {
@@ -113,19 +125,25 @@ namespace MiidBoxOffice
             }
         }
 
-        public System.Windows.Forms.Label AddDescriptionLabel(string ticketTypeName)
+     
+        public System.Windows.Forms.Label AddDescriptionLabel(string ticketTypeName, bool removeMe = false)
         {
+          
             System.Windows.Forms.Label txt = new Label();
             this.Controls.Add(txt);
             txt.Top = A * 28;
-            txt.Left = 100;
+            txt.Left = 16;
             txt.Text = ticketTypeName;
-        
+            txt.Name = "lbl" + ticketTypeName.Replace(" ", "");
+
+
+
             return txt;
         }
 
-        public System.Windows.Forms.Label AddDateLabel(DateTime startDate, DateTime endDate)
+        public System.Windows.Forms.Label AddDateLabel(string ticketTypeName, DateTime startDate, DateTime endDate, bool removeMe = false)
         {
+          
             System.Windows.Forms.Label txt = new Label();
             this.Controls.Add(txt);
             txt.Top = A * 28;
@@ -133,11 +151,14 @@ namespace MiidBoxOffice
             txt.Width = 150;
             txt.Text = String.Format("{0} - {1}", startDate.ToString("yyyy-MM-dd HH:mm"), endDate.ToString("HH:mm"));
 
+            txt.Name = "lblDate" + ticketTypeName.Replace(" ", "");
+
             return txt;
         }
 
-        public System.Windows.Forms.Label AddPriceLabel(int ticketClassID, int price)
+        public System.Windows.Forms.Label AddPriceLabel(int ticketClassID, int price, bool removeMe = false)
         {
+           
             System.Windows.Forms.Label txt = new Label();
             this.Controls.Add(txt);
             txt.Top = A * 28;
@@ -148,10 +169,22 @@ namespace MiidBoxOffice
             return txt;
         }
 
+     
 
-        public System.Windows.Forms.TextBox AddQtyTextBox(int ticketClassID)
+
+
+        public System.Windows.Forms.NumericUpDown AddQtyTextBox(int ticketClassID, bool Enabled, int RunningQty, bool removeMe = false)
         {
-            System.Windows.Forms.TextBox txt = new TextBox();
+
+            System.Windows.Forms.NumericUpDown txt = new NumericUpDown();
+
+
+            // Set the Minimum, Maximum, and initial Value.
+            txt.Value = 0;
+            txt.Maximum = RunningQty;
+            txt.Minimum = 1;
+
+
             this.Controls.Add(txt);
             txt.Top = A * 28;
             txt.Left = 460;
@@ -159,7 +192,29 @@ namespace MiidBoxOffice
             A = A + 1;
             B = B + 1;
             txt.Name = String.Format("ticketClassQty_{0}_{1}", B, ticketClassID);
+            txt.Enabled = Enabled;
+            
             return txt;
         }
+
+        public System.Windows.Forms.Label AddRunningQtyLabel(int ticketClassID, int runningQty, bool removeMe = false)
+        {
+
+            if (removeMe)
+            {
+               
+            }
+
+            System.Windows.Forms.Label txt = new Label();
+            this.Controls.Add(txt);
+            txt.Top = A * 28 - 28;
+            txt.Left = 600;
+
+            txt.Text = String.Format("({0})", runningQty);
+            txt.Name = String.Format("ticketRunningQty_{0}_{1}", B, ticketClassID);
+            return txt;
+        }
+
+     
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using MiidBoxOffice.Repository;
 
 namespace MiidBoxOffice
 {
@@ -59,7 +60,12 @@ namespace MiidBoxOffice
             string templateFolder = ConfigurationManager.AppSettings["TEMPLATE_DIRECTORY"].ToString();// TEMPLATE_DIRECTORY;
             string templateFrame = ConfigurationManager.AppSettings["TEMPLATE_FRAME"].ToString();// TEMPLATE_FRAME;
 
-            templatePath = System.IO.Path.Combine(templateFolder, templateFrame);
+            string applicationDirectory = Application.ExecutablePath;
+
+            
+
+
+            templatePath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(applicationDirectory), @"LabelTemplates\TicketBarcode.lbx");
 
             try
             {
@@ -88,6 +94,13 @@ namespace MiidBoxOffice
                 {
                     // MsgBox("Open() Error: " + doc.ErrorCode);
                 }
+                //clear tickets
+                myTicketsSb = null;
+                this.richTextBox1.Clear();
+
+                ServiceReference1.MiidWebServiceSoapClient client = new ServiceReference1.MiidWebServiceSoapClient();
+                Global.TicketClasses = TicketClassRepository.DeserialiseString(client.GetTicketClassesForEvent(Global.EventID.ToString(), true));
+
                 CashRegister form1 = new CashRegister(Global.TicketClasses, Global.UserID);
                 form1.Show();
                 this.Close();
@@ -101,5 +114,15 @@ namespace MiidBoxOffice
             }
 
         }
-    }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            ServiceReference1.MiidWebServiceSoapClient client = new ServiceReference1.MiidWebServiceSoapClient();
+            Global.TicketClasses = TicketClassRepository.DeserialiseString(client.GetTicketClassesForEvent(Global.EventID.ToString(), true));
+
+            CashRegister form = new CashRegister(Global.TicketClasses, Global.UserID);
+			form.Show();
+			this.Close();
+		}
+	}
 }
